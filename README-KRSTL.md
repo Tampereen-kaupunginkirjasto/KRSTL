@@ -46,7 +46,7 @@ Muokkaa kysymyslomakkeelle haluamasi kysymykset leikkaamalla ja liimaamalla vanh
 
 Tai vaikka googlella etsimällä. Kannattaa muistaa, että homma on helpompaa kuin miltä näyttää ja että noissa on pieniä eroja sen mukaan, mille ohjelmointikielelle esimerkit on kirjoitettu. Asiat sinällään ovat samanlaiset, mutta kirjoitustavassa voi olla pieniä eroja.
 
-Mikäli käytät uutta versiota, riittää, että editoit suoraan html-tiedoston alussa olevaa otsikot-JSON-oliota. Siinä määritellään hakemistossa näkyvät otsikot, kunkin otsikon alla näkyvät kysymyslomakkeet ja niiden yksilölliset tunnisteet sekä yksittäisellä lomakkeella näkyvät otsikko ja kysymykset sekä niiden vastaukset. Sisennyksillä ei sinällään ole väliä, mutta ne ja hyvä editori auttavat hommassa. Erilaisten sulkeiden täytyy avautua tietyssä järjestyksessä ja sulkeutua samassa ja niiden tyypillä on merkitystä. Käytännössä tuota voi lukea siten, että []-suljeparin sisällä on asioita, joita voi olla monta ja {}-suljepari rajaa sisälleen yksittäisen asian. Tämän tiedoston lopussa on lyhyt malli tuon tietorakenteen käytöstä. `/*` ja `*/`-merkintöjen välissä olevat tekstit tulkitaan kommenteiksi eikä niitä huomioida. Ne kuitenkin kasvattavat tiedoston kokoa, joten ylenpalttisesti niitä ei ole tarpeen viljellä. Lopun esimerkissä ne ovat vain selventämässä tuon käyttöä.
+Mikäli käytät uutta versiota, riittää, että editoit suoraan html-tiedoston alussa olevaa otsikot-JSON-oliota. Siinä määritellään hakemistossa näkyvät otsikot, kunkin otsikon alla näkyvät kysymyslomakkeet ja niiden yksilölliset tunnisteet sekä yksittäisellä lomakkeella näkyvät otsikko ja kysymykset sekä niiden vastaukset. Sisennyksillä ei sinällään ole väliä, mutta ne ja hyvä editori auttavat hommassa. Erilaisten sulkeiden täytyy avautua tietyssä järjestyksessä ja sulkeutua samassa ja niiden tyypillä on merkitystä. Käytännössä tuota voi lukea siten, että `[]`-suljeparin sisällä on asioita, joita voi olla monta ja {}-suljepari rajaa sisälleen yksittäisen asian. Tämän tiedoston lopussa on lyhyt malli tuon tietorakenteen käytöstä. `/*` ja `*/`-merkintöjen välissä olevat tekstit tulkitaan kommenteiksi eikä niitä huomioida. Ne kuitenkin kasvattavat tiedoston kokoa, joten ylenpalttisesti niitä ei ole tarpeen viljellä. Lopun esimerkissä ne ovat vain selventämässä tuon käyttöä.
 
 Pienet kuvat uudessa versiossa. Jos haluat omat kuvasi ja edelleen käyttää yhden tiedoston mallia, etkä linkittää niitä ulkopuolelta, voit muuttaa kuvasi HTML:ään sisällytettävään muotoon <http://dataurl.net/#dataurlmaker/> palvelun avulla.
 
@@ -86,69 +86,64 @@ Operan mobiiliselaimessa jää hieman tarpeetonta vieritysmahdollisuutta vaakasu
 
 ## Malli otsikot-JSON-oliosta
 
-/**
- * Koko homma alkaa tästä. Hakasulje eli [-merkki on alussa kertomassa, että sisältöjä on useita. Ensimmäisen hakasulkeen sisältä löytyvät {}-merkein rajattuna ja pilkuin eroteltuna kukin yksittäinen otsikko, joiden sisältä löytyvät taasen yksittäiset lomakkeet kysymyksineen, vastauksineen ja muine tietoineen joukoksi ryhmittävä "lomakkeet": [ -rimpsu. Muista, että jokainen sulje, sulkeen suunta ja tyyppi sekä pilkut ovat välttämättömiä. Ja suurin osa lainausmerkeistä myös. Vastaukset taasen on annettava nimenomaan ilman lainausmerkkejä, jotta javascript-tulkki luo niistä sellaisia olioita, joilla on test-metodi.
+/*
+Koko homma alkaa tästä. Hakasulje eli [-merkki on alussa kertomassa, että sisältöjä on useita. Ensimmäisen hakasulkeen sisältä löytyvät {}-merkein rajattuna ja pilkuin eroteltuna kukin yksittäinen otsikko, joiden sisältä löytyvät taasen yksittäiset lomakkeet kysymyksineen, vastauksineen ja muine tietoineen joukoksi ryhmittävä "lomakkeet": [ -rimpsu. Muista, että jokainen sulje, sulkeen suunta ja tyyppi sekä pilkut ovat välttämättömiä. Ja suurin osa lainausmerkeistä myös. Vastaukset taasen on annettava nimenomaan ilman lainausmerkkejä, jotta javascript-tulkki luo niistä sellaisia olioita, joilla on test-metodi.
 */
-var otsikot = [
-	{
-		/* Hakemistosivun ensimmäinen otsikko */
-		otsikko: "Esimerkkikoulu",
-		/* Sen alta löytyvät lomakkeet*/
-		"lomakkeet": [
-			/* Tästä alkaa ensimmäinen lomake */
-			{
-				/* Lomakkeen hakemistosivulla näkyvä otsikko */
-				lomake: "Kysymyssarja A",
-				/* Lomakkeen yläreunassa näkyvä, yleensä pidempi otsikko. Sivun otsikkoa (siis html-titleä)
-				varten <br> eli pakotettu rivinvaihto muutetaan pilkuksi ja välilyönniksi */
-				otsikko: "Kirjastoreitin tehtäviä alakoululaisille<br>Kysymyssarja A",
-				/* Lomakkeen yksilöivä tunniste. Tämän perusteella löydetään oikeat kysymykset ja
-				vastaukset. Mikäli tämä ei ole yksilöllinen, homma ei toimi kuin korkeintaan epäyksilöllisistä
-				jonkin kohdalla. Muut kyllä näkyvät hakemistossa, mutta niiden linkistä joutuu väärään paikkaan */
-				llid: "ak_a",
-				/* Kysymykset kokoava taulukko alkaa */
-				"kysymykset": [
-					/* Yksitäisen kysymyksen ja vastauksen muodostama pari. Huomioi lainausmerkit! Mikäli kysymyksesi sisällä
-					tarvitset lainausmerkkejä, käytä niiden paikalla \"-merkintätapaa */
-					{
-						kysymys: "Merja ja Marvi Jalo supersuositun kirjasarjan pääosassa on koira. Mikä on koiran nimi?",
-						vastaus: /^\s*Jesse\s*$/i
-					/* Yksittäinen kysymys päättyy sulkevaan aaltosulkeeseen ja pilkkuun. Sitä voisi seurata toinen, kuten
-					alemmassa lomakkeessa on */
-					},
-				]
-			},
-			{
-				lomake: "Kysymyssarja B",
-				otsikko: "Kirjastoreitin tehtäviä alakoululaisille<br>Kysymyssarja B",
-				llid: "ak_b",
-				"kysymykset": [
-					{
-						"kysymys": "Suorapuheinen poikatyttö Venla muuttaa uudelle paikkakunnalle ja uuteen kouluun Katariina Romppaisen kirjassa. Mikä on kirjan nimi?",
-						"vastaus": /^\s*Roolipeliä\s*$/i
-					},
-					{
-						"kysymys": "Kirja myrkytetyn mutakakun tapaus kuuluu Mysteeritytöt-sarjaan. Kuka on kirjoittanut sarjan kirjat?",
-						"vastaus": /^\s*(Alex\s+Carter|Carter\,?\s+Alex)\s*$/i
-					},
-				]
-			},
-		]
-	},
-	{
-		"otsikko": "Yläkoulu",
-		"lomakkeet": [
-			{
-				"lomake": "Kysymyssarja A",
-				otsikko: "Kirjastoreitin tehtäviä yläkoululaisille<br>Kysymyssarja A",
-				llid: "yk_a",
-				"kysymykset": [
-					{
-						"kysymys": "Kirjassa Niskaan putoava taivas 14-vuotias Tekla saa viettää viikon ilman vanhempiaan, mutta unelmaviikosta tuleekin painajainen. Kuka kirjan on kirjoittanut?",
-						"vastaus": /^\s*(Laura\s+L[äa]hteenm[äa]ki|Lähteenmä(en|ki)\,?\s+Laura)\s*$/i
-					},
-				]
-			},
-		]
-	},
-]
+    var otsikot = [
+    	{
+    		/* Hakemistosivun ensimmäinen otsikko */
+    		"otsikko": "Esimerkkikoulu",
+    		/* Sen alta löytyvät lomakkeet*/
+    		"lomakkeet": [
+    			/* Tästä alkaa ensimmäinen lomake */
+    			{
+    				/* Lomakkeen hakemistosivulla näkyvä otsikko */
+    				"lomake": "Kysymyssarja A",
+    				/* Lomakkeen yläreunassa näkyvä, yleensä pidempi otsikko. Sivun otsikkoa (siis html-titleä) varten <br> eli pakotettu rivinvaihto muutetaan pilkuksi ja välilyönniksi */
+    				"otsikko": "Kirjastoreitin tehtäviä alakoululaisille<br>Kysymyssarja A",
+    				/* Lomakkeen yksilöivä tunniste. Tämän perusteella löydetään oikeat kysymykset ja vastaukset. Mikäli tämä ei ole yksilöllinen, homma ei toimi kuin korkeintaan epäyksilöllisistä jonkin kohdalla. Muut kyllä näkyvät hakemistossa, mutta niiden linkistä joutuu väärään paikkaan */
+    				"llid": "ak_a",
+    				/* Kysymykset kokoava taulukko alkaa */
+    				"kysymykset": [
+    					/* Yksitäisen kysymyksen ja vastauksen muodostama pari. Huomioi lainausmerkit! Mikäli kysymyksesi sisällä tarvitset lainausmerkkejä, käytä niiden paikalla \"-merkintätapaa */
+    					{
+    						"kysymys": "Merja ja Marvi Jalo supersuositun kirjasarjan pääosassa on koira. Mikä on koiran nimi?",
+    						"vastaus": /^\s*Jesse\s*$/i
+    					/* Yksittäinen kysymys päättyy sulkevaan aaltosulkeeseen ja pilkkuun. Sitä voisi seurata toinen, kuten alemmassa lomakkeessa on */
+    					},
+    				]
+    			},
+    			{
+    				"lomake": "Kysymyssarja B",
+    				"otsikko": "Kirjastoreitin tehtäviä alakoululaisille<br>Kysymyssarja B",
+    				"llid": "ak_b",
+    				"kysymykset": [
+    					{
+    						"kysymys": "Suorapuheinen poikatyttö Venla muuttaa uudelle paikkakunnalle ja uuteen kouluun Katariina Romppaisen kirjassa. Mikä on kirjan nimi?",
+    						"vastaus": /^\s*Roolipeliä\s*$/i
+    					},
+    					{
+    						"kysymys": "Kirja myrkytetyn mutakakun tapaus kuuluu Mysteeritytöt-sarjaan. Kuka on kirjoittanut sarjan kirjat?",
+    						"vastaus": /^\s*(Alex\s+Carter|Carter\,?\s+Alex)\s*$/i
+    					},
+    				]
+    			},
+    		]
+    	},
+    	{
+    		"otsikko": "Yläkoulu",
+    		"lomakkeet": [
+    			{
+    				"lomake": "Kysymyssarja A",
+    				"otsikko": "Kirjastoreitin tehtäviä yläkoululaisille<br>Kysymyssarja A",
+    				"llid": "yk_a",
+    				"kysymykset": [
+    					{
+    						"kysymys": "Kirjassa Niskaan putoava taivas 14-vuotias Tekla saa viettää viikon ilman vanhempiaan, mutta unelmaviikosta tuleekin painajainen. Kuka kirjan on kirjoittanut?",
+    						"vastaus": /^\s*(Laura\s+L[äa]hteenm[äa]ki|Lähteenmä(en|ki)\,?\s+Laura)\s*$/i
+    					},
+    				]
+    			},
+    		]
+    	},
+    ]
