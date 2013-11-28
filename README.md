@@ -17,7 +17,7 @@ Voi toimia toki muillakin.
 
 ## Käyttöönotto
 
-1. Kopioi tiedostot palvelimelle
+1. Vaihda `index.html`-tiedostoon `meta`-tagiin UTF-8 merkistökoodaus
 2. Lisää kysymykset `data.js`-tiedostoon
-3. Vaihda `index.html`-tiedostoon `meta`-tagiin UTF-8 merkistökoodaus
+3. Kopioi tiedostot palvelimelle
 4. Testaa, että sovellus toimii
