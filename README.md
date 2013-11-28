@@ -6,7 +6,9 @@ Tiedonhaun mobiilisovellus on kirjaston tiedonhaun sähköinen tehtävälomake.
 
 ## Uusia ominaisuuksia
 
-...
+- Karsii turhat välilyönnit eli ei merkitse vastausta vääräksi, jos on esim. vahingossa laittanut tuplavälilyönnin
+- Osaa huomioida kaksoispisteen ympäriltä välilyönnit eli esim. merkitse vastausta vääräksi, jos onkin kirjoittanut `a : b`, vaikka vastauksessa olisi `a: b`
+- Näyttää `alert`-ikkunan, jossa onnitteluteksti, kun kaikki kysymykset on saanut oikein
 
 ## Toimivuus
 
