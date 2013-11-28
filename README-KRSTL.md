@@ -86,64 +86,66 @@ Operan mobiiliselaimessa jää hieman tarpeetonta vieritysmahdollisuutta vaakasu
 
 ## Malli otsikot-JSON-oliosta
 
+```js
 /*
 Koko homma alkaa tästä. Hakasulje eli [-merkki on alussa kertomassa, että sisältöjä on useita. Ensimmäisen hakasulkeen sisältä löytyvät {}-merkein rajattuna ja pilkuin eroteltuna kukin yksittäinen otsikko, joiden sisältä löytyvät taasen yksittäiset lomakkeet kysymyksineen, vastauksineen ja muine tietoineen joukoksi ryhmittävä "lomakkeet": [ -rimpsu. Muista, että jokainen sulje, sulkeen suunta ja tyyppi sekä pilkut ovat välttämättömiä. Ja suurin osa lainausmerkeistä myös. Vastaukset taasen on annettava nimenomaan ilman lainausmerkkejä, jotta javascript-tulkki luo niistä sellaisia olioita, joilla on test-metodi.
 */
     var otsikot = [
-    	{
-    		/* Hakemistosivun ensimmäinen otsikko */
-    		"otsikko": "Esimerkkikoulu",
-    		/* Sen alta löytyvät lomakkeet*/
-    		"lomakkeet": [
-    			/* Tästä alkaa ensimmäinen lomake */
-    			{
-    				/* Lomakkeen hakemistosivulla näkyvä otsikko */
-    				"lomake": "Kysymyssarja A",
-    				/* Lomakkeen yläreunassa näkyvä, yleensä pidempi otsikko. Sivun otsikkoa (siis html-titleä) varten <br> eli pakotettu rivinvaihto muutetaan pilkuksi ja välilyönniksi */
-    				"otsikko": "Kirjastoreitin tehtäviä alakoululaisille<br>Kysymyssarja A",
-    				/* Lomakkeen yksilöivä tunniste. Tämän perusteella löydetään oikeat kysymykset ja vastaukset. Mikäli tämä ei ole yksilöllinen, homma ei toimi kuin korkeintaan epäyksilöllisistä jonkin kohdalla. Muut kyllä näkyvät hakemistossa, mutta niiden linkistä joutuu väärään paikkaan */
-    				"llid": "ak_a",
-    				/* Kysymykset kokoava taulukko alkaa */
-    				"kysymykset": [
-    					/* Yksitäisen kysymyksen ja vastauksen muodostama pari. Huomioi lainausmerkit! Mikäli kysymyksesi sisällä tarvitset lainausmerkkejä, käytä niiden paikalla \"-merkintätapaa */
-    					{
-    						"kysymys": "Merja ja Marvi Jalo supersuositun kirjasarjan pääosassa on koira. Mikä on koiran nimi?",
-    						"vastaus": /^\s*Jesse\s*$/i
-    					/* Yksittäinen kysymys päättyy sulkevaan aaltosulkeeseen ja pilkkuun. Sitä voisi seurata toinen, kuten alemmassa lomakkeessa on */
-    					},
-    				]
-    			},
-    			{
-    				"lomake": "Kysymyssarja B",
-    				"otsikko": "Kirjastoreitin tehtäviä alakoululaisille<br>Kysymyssarja B",
-    				"llid": "ak_b",
-    				"kysymykset": [
-    					{
-    						"kysymys": "Suorapuheinen poikatyttö Venla muuttaa uudelle paikkakunnalle ja uuteen kouluun Katariina Romppaisen kirjassa. Mikä on kirjan nimi?",
-    						"vastaus": /^\s*Roolipeliä\s*$/i
-    					},
-    					{
-    						"kysymys": "Kirja myrkytetyn mutakakun tapaus kuuluu Mysteeritytöt-sarjaan. Kuka on kirjoittanut sarjan kirjat?",
-    						"vastaus": /^\s*(Alex\s+Carter|Carter\,?\s+Alex)\s*$/i
-    					},
-    				]
-    			},
-    		]
-    	},
-    	{
-    		"otsikko": "Yläkoulu",
-    		"lomakkeet": [
-    			{
-    				"lomake": "Kysymyssarja A",
-    				"otsikko": "Kirjastoreitin tehtäviä yläkoululaisille<br>Kysymyssarja A",
-    				"llid": "yk_a",
-    				"kysymykset": [
-    					{
-    						"kysymys": "Kirjassa Niskaan putoava taivas 14-vuotias Tekla saa viettää viikon ilman vanhempiaan, mutta unelmaviikosta tuleekin painajainen. Kuka kirjan on kirjoittanut?",
-    						"vastaus": /^\s*(Laura\s+L[äa]hteenm[äa]ki|Lähteenmä(en|ki)\,?\s+Laura)\s*$/i
-    					},
-    				]
-    			},
-    		]
-    	},
+        {
+            /* Hakemistosivun ensimmäinen otsikko */
+            "otsikko": "Esimerkkikoulu",
+            /* Sen alta löytyvät lomakkeet*/
+            "lomakkeet": [
+                /* Tästä alkaa ensimmäinen lomake */
+                {
+                    /* Lomakkeen hakemistosivulla näkyvä otsikko */
+                    "lomake": "Kysymyssarja A",
+                    /* Lomakkeen yläreunassa näkyvä, yleensä pidempi otsikko. Sivun otsikkoa (siis html-titleä) varten <br> eli pakotettu rivinvaihto muutetaan pilkuksi ja välilyönniksi */
+                    "otsikko": "Kirjastoreitin tehtäviä alakoululaisille<br>Kysymyssarja A",
+                    /* Lomakkeen yksilöivä tunniste. Tämän perusteella löydetään oikeat kysymykset ja vastaukset. Mikäli tämä ei ole yksilöllinen, homma ei toimi kuin korkeintaan epäyksilöllisistä jonkin kohdalla. Muut kyllä näkyvät hakemistossa, mutta niiden linkistä joutuu väärään paikkaan */
+                    "llid": "ak_a",
+                    /* Kysymykset kokoava taulukko alkaa */
+                    "kysymykset": [
+                        /* Yksitäisen kysymyksen ja vastauksen muodostama pari. Huomioi lainausmerkit! Mikäli kysymyksesi sisällä tarvitset lainausmerkkejä, käytä niiden paikalla \"-merkintätapaa */
+                        {
+                            "kysymys": "Merja ja Marvi Jalo supersuositun kirjasarjan pääosassa on koira. Mikä on koiran nimi?",
+                            "vastaus": /^\s*Jesse\s*$/i
+                        /* Yksittäinen kysymys päättyy sulkevaan aaltosulkeeseen ja pilkkuun. Sitä voisi seurata toinen, kuten alemmassa lomakkeessa on */
+                        },
+                    ]
+                },
+                {
+                    "lomake": "Kysymyssarja B",
+                    "otsikko": "Kirjastoreitin tehtäviä alakoululaisille<br>Kysymyssarja B",
+                    "llid": "ak_b",
+                    "kysymykset": [
+                        {
+                            "kysymys": "Suorapuheinen poikatyttö Venla muuttaa uudelle paikkakunnalle ja uuteen kouluun Katariina Romppaisen kirjassa. Mikä on kirjan nimi?",
+                            "vastaus": /^\s*Roolipeliä\s*$/i
+                        },
+                        {
+                            "kysymys": "Kirja myrkytetyn mutakakun tapaus kuuluu Mysteeritytöt-sarjaan. Kuka on kirjoittanut sarjan kirjat?",
+                            "vastaus": /^\s*(Alex\s+Carter|Carter\,?\s+Alex)\s*$/i
+                        },
+                    ]
+                },
+            ]
+        },
+        {
+            "otsikko": "Yläkoulu",
+            "lomakkeet": [
+                {
+                    "lomake": "Kysymyssarja A",
+                    "otsikko": "Kirjastoreitin tehtäviä yläkoululaisille<br>Kysymyssarja A",
+                    "llid": "yk_a",
+                    "kysymykset": [
+                        {
+                            "kysymys": "Kirjassa Niskaan putoava taivas 14-vuotias Tekla saa viettää viikon ilman vanhempiaan, mutta unelmaviikosta tuleekin painajainen. Kuka kirjan on kirjoittanut?",
+                            "vastaus": /^\s*(Laura\s+L[äa]hteenm[äa]ki|Lähteenmä(en|ki)\,?\s+Laura)\s*$/i
+                        },
+                    ]
+                },
+            ]
+        },
     ]
+```
