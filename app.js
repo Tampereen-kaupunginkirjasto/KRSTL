@@ -222,7 +222,10 @@
                 correctAnswerCount = 0,
                 divCollection,
                 gratWindow,
-                gratImage;
+                gratImage,
+                // THESE TWO ARE TO BE REMOVED; ONLY FOR TESTING
+                tmpHeading,
+                tmpHeadingText;
                 
             formCount = document.getElementsByTagName('form').length;
             divCollection = document.getElementsByTagName('div');
@@ -236,7 +239,19 @@
                 //alert('Kaikki oikein! Onneksi olkoon!');
                 gratWindow = document.createElement('div');
                 gratWindow.setAttribute('class', 'gratWindow');
+                gratWindow.addEventListener('click', function(event) {
+                    document.body.removeChild(gratWindow);
+                });
                 document.body.appendChild(gratWindow);
+                
+                // TODO: Change this to image later, when one available
+                gratImage = document.createElement('div');
+                gratImage.setAttribute('class', 'gratImage');
+                tmpHeading = document.createElement('h1');
+                tmpHeadingText = document.createTextNode('Kaikki oikein, onneksi olkoon!');
+                tmpHeading.appendChild(tmpHeadingText);
+                gratImage.appendChild(tmpHeading);
+                document.body.appendChild(gratImage);
             }
             
             log('Forms count: ' + formCount + ', Correct answer count: ' + correctAnswerCount);
