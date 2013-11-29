@@ -241,6 +241,7 @@
                 gratWindow.setAttribute('class', 'gratWindow');
                 gratWindow.addEventListener('click', function(event) {
                     document.body.removeChild(gratWindow);
+                    document.body.removeChild(gratImage);
                 });
                 document.body.appendChild(gratWindow);
                 
