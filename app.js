@@ -220,7 +220,9 @@
             event.preventDefault();
             var formCount,
                 correctAnswerCount = 0,
-                divCollection;
+                divCollection,
+                gratWindow,
+                gratImage;
                 
             formCount = document.getElementsByTagName('form').length;
             divCollection = document.getElementsByTagName('div');
@@ -231,7 +233,10 @@
             }
             
             if(formCount === correctAnswerCount) {
-                alert('Kaikki oikein! Onneksi olkoon!');
+                //alert('Kaikki oikein! Onneksi olkoon!');
+                gratWindow = document.createElement('div');
+                gratWindow.setAttribute('class', 'gratWindow');
+                document.body.appendChild(gratWindow);
             }
             
             log('Forms count: ' + formCount + ', Correct answer count: ' + correctAnswerCount);
