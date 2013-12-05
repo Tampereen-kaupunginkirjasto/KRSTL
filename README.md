@@ -17,6 +17,7 @@ Voi toimia toki muillakin.
 - Firefox 9+
 - Internet Explorer 9+ (ei ole testatu versiolla 9, mutta testattu versiolla 10)
 - Firefox 19 (Galaxy Tab 2 / 7.0)
+- Chrome 18 (Galaxy Tab 2 / 7.0)
 
 ## Käyttöönotto
 
