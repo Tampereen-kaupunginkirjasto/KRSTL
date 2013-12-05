@@ -14,8 +14,8 @@
 
     // This controls whether log messages are shown or not. If it's anything else
     // than word development, then no log messages are shown.
-    //var ENV = 'production';
-    var ENV = 'development';
+    var ENV = 'production';
+    //var ENV = 'development';
 
     /**
      * If no console object is available, then it creates its own little 'console'
@@ -36,7 +36,6 @@
 
         // Prepend message with time
         message = new Date().toLocaleTimeString() + ":    " + message;
-        logContainer = document.getElementById('log');
 
         // @see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FOperators%2Fin
         // Use console, if it's available
@@ -45,6 +44,10 @@
             return;
         }
 
+        /*
+        // Not in use. If there's need to debug on browser that does not support console,
+        // this can be re-enabled by uncommenting
+        logContainer = document.getElementById('log');
         body.setAttribute('class', 'with-log');
 
         // We need to create a simple log console if real console, i.e. console-
@@ -60,6 +63,7 @@
         textNode = document.createTextNode(message);
         htmlMessage.appendChild(textNode);
         logContainer.appendChild(htmlMessage);
+        */
     }
 
     /**
@@ -89,7 +93,7 @@
                          .replace(/(\s+$)/, '')
                          .replace(/(\s{2,})/g, ' ')
                          .replace(/(\s\|\s)/g, '|')
-                         .replace(/(\s*\:\s*)/, ': ');
+                         .replace(/(\s*\:\s*)/g, ': ');
         return normalized;
     }
 
@@ -160,14 +164,18 @@
 
         var questionWrapper = document.createElement('div'),
             questionNode    = document.createElement('p'),
-            questionText    = document.createTextNode(data.questionText),
+            //questionText  = document.createTextNode(data.questionText),
+            questionText,
             form            = document.createElement('form'),
             textInput       = document.createElement('input'),
             button          = document.createElement('button'),
             buttontxt       = document.createTextNode('Tarkista');
 
+        questionText = data.questionText.replace(/\*\*(.*)\*\*/g, '<strong>$1</strong>');
+        questionNode.innerHTML = questionText;
+        
         questionWrapper.setAttribute('class', 'question');
-        questionNode.appendChild(questionText);
+        //questionNode.appendChild(questionText);
         questionWrapper.appendChild(questionNode);
 
         textInput.setAttribute('type', 'text');
@@ -221,7 +229,7 @@
             var formCount,
                 correctAnswerCount = 0,
                 divCollection;
-                
+
             formCount = document.getElementsByTagName('form').length;
             divCollection = document.getElementsByTagName('div');
             for(var i = 0, divCount = divCollection.length; i < divCount; i++) {
