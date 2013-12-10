@@ -228,8 +228,10 @@
             event.preventDefault();
             var formCount,
                 correctAnswerCount = 0,
-                divCollection;
-
+                divCollection,
+                gratWindow,
+                gratImage;
+                
             formCount = document.getElementsByTagName('form').length;
             divCollection = document.getElementsByTagName('div');
             for(var i = 0, divCount = divCollection.length; i < divCount; i++) {
