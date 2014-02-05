@@ -4,10 +4,6 @@
 
 Tiedonhaun harjoituksia on kirjaston tiedonhaun sähköinen tehtävälomake.
 
-## Uusia ominaisuuksia
-
-- ...
-
 ## Toimivuus
 
 Voi toimia toki muillakin.
