@@ -1,20 +1,41 @@
-Alkuperäinen KRSTL:
+# Lisenssi ja tekijänoikeudet
+
+- Lisenssi ei koske PIKI-ulkoasua ja logoa.
+- Lisenssi ei koske Oulun logoa eikä värejä.
+
+## Alkuperäinen KRSTL
+
+Tekijä: Sampo Lehtinen
+Tekijänoikeuden haltija: Oulun kaupunginkirjasto
+Web: http://s.iki.fi/krstl
+Lisenssi: MIT
+
+
+## Tiedonhaun harjoituksia
+
+Tekijä: Miika Koskela
+Tekijänoikeuden haltija: Tampereen kaupunginkirjasto - Pirkanmaan maakuntakirjasto
+Web: https://github.com/Tampereen-kaupunginkirjasto/tiedonhaun-harjoituksia
+Lisenssi: MIT
 
 ----
 
-CC BY-NC-SA.
-Copyright Oulun Kaupunginkirjasto - Maakuntakirjasto.
-Done by Sampo Lehtinen.
-No warranty what so ever.
+Copyright (c) 2013 Oulun kaupunginkirjasto
+Copyright (c) 2014 Tampereen kaupunginkirjasto
 
-CC BY-NC-SA.
-Tekijänoikeudet Oulun Kaupunginkirjasto - Maakuntakirjasto.
-Alkuperäinen tekijä Sampo Lehtinen.
-Kokonaisuudelle ei myönnetä minkäänlaisia takuita tekijänoikeudenhaltijoiden tai tekijän eikä tiettävästi kenenkään muunkaan taholta.
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
 
-Käytö tapahtuu siis täysin omalla vastuulla.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-----
-
-Tiedonhaun mobiilisovellus jonka tekijä on Tampereen Kaupunginkirjasto / Pirkanmaan maakuntakirjasto on lisensoitu Creative Commons Nimeä-Epäkaupallinen-JaaSamoin 3.0 Muokkaamaton -lisenssillä.
-Teos on muunnelma teoksesta http://s.iki.fi/krstl.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
