@@ -5,9 +5,9 @@
  * global namespace.
  * 
  * @see LICENCE.txt for licensing and README.txt for more information
- * @copyright
- * @copyright
- * @licence
+ * @copyright Oulun kaupunginkirjasto
+ * @copyright Tampereen kaupunginkirjasto
+ * @licence MIT
  */
 (function() {
     "use strict";
@@ -171,7 +171,7 @@
             button          = document.createElement('button'),
             buttontxt       = document.createTextNode('Tarkista');
 
-        questionText = data.questionText.replace(/\*\*(.*)\*\*/g, '<strong>$1</strong>');
+        questionText = data.questionText.replace(/\*\*([^*]*)\*\*/g, '<strong>$1</strong>');
         questionNode.innerHTML = questionText;
         
         questionWrapper.setAttribute('class', 'question');
@@ -227,10 +227,11 @@
             
             event.preventDefault();
             var formCount,
-                correctAnswerCount = 0,
+                correctAnswerCount  = 0,
                 divCollection,
-                gratWindow,
-                gratImage;
+                contentArea         = document.getElementById('content'),
+                gratHeading,        // = document.createElement('h2'),
+                gratHeadingText;    // = document.createTextNode('Kaikki oikein! Onneksi olkoon!');
                 
             formCount = document.getElementsByTagName('form').length;
             divCollection = document.getElementsByTagName('div');
@@ -241,7 +242,14 @@
             }
             
             if(formCount === correctAnswerCount) {
-                alert('Kaikki oikein! Onneksi olkoon!');
+                //alert('Kaikki oikein! Onneksi olkoon!');
+                // TODO: Remove help text too
+                gratHeading = document.createElement('h2');
+                gratHeading.setAttribute('id', 'gratHeading');
+                gratHeadingText = document.createTextNode('Kaikki oikein! Onneksi olkoon!');
+                gratHeading.appendChild(gratHeadingText);
+                contentArea.innerHTML = '';
+                contentArea.appendChild(gratHeading);
             }
             
             log('Forms count: ' + formCount + ', Correct answer count: ' + correctAnswerCount);
